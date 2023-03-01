@@ -21,6 +21,7 @@ But that's not all! Hyperactyl also provides you with a ton of other cool featur
  - Referal System
  - Node Status
  - Multiple Login Methods (Google, Discord and Email)
+ - Afk (Arcio)
 
 ## Upcoming Features
  - Detailed Node Status (For Each Node In A Saperate Page)
