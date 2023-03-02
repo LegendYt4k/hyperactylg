@@ -78,10 +78,11 @@
 						<a href="/auth/discord" class="login100-social-item bg2">
 							<i class="fa-brands fa-discord"></i>
 						</a>
-
+						<% if(settings.api.client.google.enabled == true) { %> 
 						<a href="/auth/google" class="login100-social-item bg3">
 							<i class="fa fa-google"></i>
 						</a>
+						<% } %>
 					</div>
 
 					<div class="flex-col-c p-t-155">

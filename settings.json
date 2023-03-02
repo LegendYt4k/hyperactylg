@@ -65,6 +65,8 @@
         }
       },
       "google": {
+        "enabled": false,
+        
         "_comment1": "you can get these details from https://console.cloud.google.com/",
         "clientid": "",
 
