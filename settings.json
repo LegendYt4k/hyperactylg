@@ -54,13 +54,13 @@
         "prompt": true,
 
         "ip": {
-          "trust x-forwarded-for": true,
+          "trust x-forwarded-for": false,
           "block": [],
 
-          "_comment": "'duplicate check' is an anti-alt check by IPs.",
+          "_comment": "duplicate check' is an anti-alt check by IPs.",
           "duplicate check": true,
 
-          "_comment2": "'cookie alt check' is an anti-alt check by cookies.",
+          "_comment2": "cookie alt check' is an anti-alt check by cookies.",
           "cookie alt check": true
         }
       },

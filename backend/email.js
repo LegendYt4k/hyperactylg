@@ -59,7 +59,19 @@ module.exports.load = async function(app, db) {
           await db.set("ips", allips);
           await db.set(`ip-${req.query.email}`, ip);
         }
-        
+      
+        if (settings.api.client.oauth2.ip["cookie alt check"]) {
+          let accountid = getCookie(req, "accountid");
+
+          if (accountid) {
+            if (accountid !== req.query.mail) {
+              return res.send('You Cannot Create Alts');
+            }
+          }
+
+          res.cookie('accountid', req.query.mail);
+        }
+
         let usernamehash = req.query.username + makenumber(4)
         
         usernamenew = String(usernamehash);
@@ -161,5 +173,23 @@ module.exports.load = async function(app, db) {
           res.status(404);
           res.send(str);
       });
+        
   }
 }
+
+
+
+function getCookie(req, cname) {
+  let cookies = req.headers.cookie;
+  if (!cookies) return null;
+  let name = cname + "=";
+  let ca = cookies.split(';');
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return decodeURIComponent(c.substring(name.length, c.length));
+    }
+  } }
