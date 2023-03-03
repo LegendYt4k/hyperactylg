@@ -6,9 +6,10 @@ const indexjs = require("../index.js");
 module.exports.load = async function(app, db) {
     app.get("/auth/email/login", async (req, res) => {
         if (!req.query.email || !req.query.password) return res.send("Invalid Information");
-        const user = await db.get(`user-${req.query.email}`);
+        const userinfo = await db.get(`userinfo-${req.query.email}`);
+        const user = await db.get(`users-${req.query.email}`);
         const passwords = await db.get(`passwords-${req.query.email}`);
-        if (!user) return res.send({error: "Invalid Email or Password."});
+        if (!user) return res.send({error: "Invalid Email."});
         if (passwords !== req.query.password) return res.send({error: "Invalid Password."});
 
         let cacheaccount = await fetch(
@@ -22,7 +23,7 @@ module.exports.load = async function(app, db) {
         cacheaccount = JSON.parse(await cacheaccount.text());
 
         req.session.pterodactyl = cacheaccount.attributes;
-        req.session.userinfo = user;
+        req.session.userinfo = userinfo;
 
         return res.redirect("/dashboard")
     });
