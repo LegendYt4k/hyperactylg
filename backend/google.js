@@ -77,12 +77,12 @@ app.get('/auth/google', (req, res) => {
           let accountid = getCookie(req, "accountid");
 
           if (accountid) {
-            if (accountid !== req.query.mail) {
+            if (accountid !== userinfo.id) {
               return res.send('You Cannot Create Alts');
             }
           }
 
-          res.cookie('accountid', req.query.mail);
+          res.cookie('accountid', userinfo.id);
         }
         
             let accountjson = await fetch(
