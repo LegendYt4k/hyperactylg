@@ -49,8 +49,8 @@ app.get('/auth/google', (req, res) => {
 
         if (!await db.get("users-" + userid)) {
           if (newsettings.api.client.allow.newusers == true) {
-            let ip = (settings.api.client.oauth2.ip["trust x-forwarded-for"] == true ? (req.headers['x-forwarded-for'] || req.connection.remoteAddress) : req.connection.remoteAddress);
-      ip = (ip ? ip : "::1").replace(/::1/g, "::ffff:127.0.0.1").replace(/^.*:/, '');
+            
+        let ip = req.headers['x-forwarded-for'] || req.headers['x-real-ip'] || req.headers['x-client-ip'] || req.headers['x-forwarded'] || req.socket.remoteAddress;
 
         let allips = await db.get("ips") ? await db.get("ips") : [];
         let mainip = await db.get(`ip-${userid}`);

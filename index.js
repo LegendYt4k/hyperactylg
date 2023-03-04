@@ -78,6 +78,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(bodyParser.json())
 
+app.set('trust proxy', true);
+
 const expressWs = require('express-ws')(app);
 
 const ejs = require("ejs");
