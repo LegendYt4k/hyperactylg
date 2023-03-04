@@ -66,7 +66,7 @@ module.exports.load = async function(app, db) {
 
           if (accountid) {
             if (accountid !== req.query.mail) {
-              return res.send('You Cannot Create Alts');
+              return res.send('You Cannot Create Alts!');
             }
           }
 

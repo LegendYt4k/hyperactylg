@@ -110,7 +110,7 @@ module.exports.load = async function(app, db) {
 
           if (accountid) {
             if (accountid !== userinfo.id) {
-              return res.redirect(failedcallback + "?err=ANTIALT");
+              return res.send('You Cannot Create Alts!');
             }
           }
 
