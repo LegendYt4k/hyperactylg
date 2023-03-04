@@ -11,8 +11,7 @@
   "custom_ads":{
     "enabled": false,
     "redirect": "https://hyperactyl.com",
-    "pic": "https://media.discordapp.net/attachments/965480343639580722/1046439906962063451/standard.gif",
-    "note": "this is an custom ad"
+    "pic": "https://media.discordapp.net/attachments/965480343639580722/1046439906962063451/standard.gif"
   },
   "nodes_status": {
     "enabled": true
