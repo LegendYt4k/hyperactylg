@@ -1,6 +1,6 @@
 {
   "name": "hyperactyl",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A Dashboard For Splitting Resources And Servers In Pterodactyl",
   "main": "index.js",
   "scripts": {
