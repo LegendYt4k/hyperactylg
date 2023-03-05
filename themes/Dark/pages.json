@@ -67,7 +67,8 @@
     "nodes": "node-status.ejs",
     "admin/users": "admin-users.ejs",
     "admin/users/view": "admin-users-view.ejs",
-    "admin/resources": "admin-resources.ejs"
+    "admin/resources": "admin-resources.ejs",
+    "admin/servers": "admin-servers.ejs"
         
   },
   "mustbeloggedin": [
@@ -83,9 +84,11 @@
     "/status"
   ],
   "mustbeadmin": [
-    "/admin"
-    
-
+    "/admin",
+    "/admin/users",
+    "/admin/users/view",
+    "/admin/resources",
+    "/admin/servers"
   ],
   "generateafktoken": [
     "/afk"
