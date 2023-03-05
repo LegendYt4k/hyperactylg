@@ -81,7 +81,9 @@
     "/redeem",
     "/gift",
     "/j4r",
-    "/status"
+    "/status",
+    "/nodes",
+    "/refer"
   ],
   "mustbeadmin": [
     "/admin",
