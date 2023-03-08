@@ -2,11 +2,6 @@ const settings = require("../../settings");
 const fetch = require("node-fetch");
 
 module.exports.load = async function(app, db) {
-  app.get("/api/admin", async (req,res) => {
-    res.send({
-        "status": true
-      })
-  })
 
   app.get("/api/admin/users/details", async (req,res) => {
 
@@ -21,7 +16,8 @@ module.exports.load = async function(app, db) {
     })
     .then(response => response.json())
     .then(json => {
-        let body = {
+        async function data() {
+          let body = {
             id: req.query.id
         }
         body.email = json.attributes.email
@@ -31,7 +27,21 @@ module.exports.load = async function(app, db) {
         body.last_name = json.attributes.last_name
         body.admin = json.attributes.root_admin
 
+        let package = await db.get("package-" + req.query.id) ? await db.get("package-" + req.query.id) : settings.api.client.packages.list.default
+        let extra = await db.get("extra-" + req.query.id) ? await db.get("extra-" + req.query.id) : {
+          ram: 0,
+          disk: 0,
+          cpu: 0,
+          servers: 0
+        }
+        body.ram = package.ram + extra.ram
+        body.disk = package.disk + extra.disk
+        body.cpu = package.cpu + extra.cpu
+        body.servers = package.servers + extra.servers
         res.send(body)
+        }
+
+        data();
     })
 
   })

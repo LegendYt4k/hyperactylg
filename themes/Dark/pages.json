@@ -47,7 +47,8 @@
     "removeaccountsuccess": "/admin",
     "updatedreferid": "/refer",
     "invalidreferupdatedetails": "/refer",
-    "reffered": "/refer"
+    "reffered": "/refer",
+    "suspended": "/admin/servers"
   },
   "pages": {
     "dashboard": "dashboard.ejs",
@@ -68,7 +69,8 @@
     "admin/users": "admin-users.ejs",
     "admin/users/view": "admin-users-view.ejs",
     "admin/resources": "admin-resources.ejs",
-    "admin/servers": "admin-servers.ejs"
+    "admin/servers": "admin-servers.ejs",
+    "admin/servers/view": "admin-servers-view.ejs"
         
   },
   "mustbeloggedin": [
@@ -90,7 +92,8 @@
     "/admin/users",
     "/admin/users/view",
     "/admin/resources",
-    "/admin/servers"
+    "/admin/servers",
+    "/admin/servers/view"
   ],
   "generateafktoken": [
     "/afk"
