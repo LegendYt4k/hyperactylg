@@ -27,7 +27,7 @@ But that's not all! Hyperactyl also provides you with a ton of other cool featur
 
 ## Upcoming Features
  - Detailed Node Status (For Each Node In A Saperate Page)
- - Server/User Suspend Through Admin Area.
+ - User Suspend Through Admin Area.
 
 # Installation
 ## Manual Installation
