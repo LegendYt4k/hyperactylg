@@ -1,4 +1,3 @@
-
 const fetch = require('node-fetch');
 const fs = require("fs");
 const indexjs = require("../../index.js");
@@ -9,7 +8,7 @@ const chalk = require('chalk');
 const { response } = require("express");
 module.exports.load = async function(app, db) {
     module.exports.suspend = async function(discordid) {
-        let newsettings = JSON.parse(fs.readFileSync("./settings.json").toString());
+        let newsettings = JSON.parse(fs.readFileSync("./newsettings.json").toString());
         if (newsettings.api.client.allow.overresourcessuspend !== true) return;
     
         let canpass = await indexjs.islimited();
@@ -25,10 +24,10 @@ module.exports.load = async function(app, db) {
         indexjs.ratelimits(1);
         let pterodactylid = await db.get("users-" + discordid);
         let userinforeq = await fetch(
-            settings.pterodactyl.domain + "/api/application/users/" + pterodactylid + "?include=servers",
+            newsettings.pterodactyl.domain + "/api/application/users/" + pterodactylid + "?include=servers",
             {
               method: "get",
-              headers: { 'Content-Type': 'application/json', "Authorization": `Bearer ${settings.pterodactyl.key}` }
+              headers: { 'Content-Type': 'application/json', "Authorization": `Bearer ${newsettings.pterodactyl.key}` }
             }
           );
         if (await userinforeq.statusText == "Not Found") {
@@ -75,26 +74,25 @@ module.exports.load = async function(app, db) {
             for (let i = 0, len = userinfo.attributes.relationships.servers.data.length; i < len; i++) {
                 let suspendid = userinfo.attributes.relationships.servers.data[i].attributes.id;
                 await fetch(
-                    settings.pterodactyl.domain + "/api/application/servers/" + suspendid + "/suspend",
+                    newsettings.pterodactyl.domain + "/api/application/servers/" + suspendid + "/suspend",
                     {
                       method: "post",
-                      headers: { 'Content-Type': 'application/json', "Authorization": `Bearer ${settings.pterodactyl.key}` }
+                      headers: { 'Content-Type': 'application/json', "Authorization": `Bearer ${newsettings.pterodactyl.key}` }
                     }
                   );
             }
         } else {
-            if (settings.api.client.allow.renewsuspendsystem.enabled == true) return;
+            if (newsettings.api.client.allow.renewsuspendsystem.enabled == true) return;
             for (let i = 0, len = userinfo.attributes.relationships.servers.data.length; i < len; i++) {
                 let suspendid = userinfo.attributes.relationships.servers.data[i].attributes.id;
                 await fetch(
-                    settings.pterodactyl.domain + "/api/application/servers/" + suspendid + "/unsuspend",
+                    newsettings.pterodactyl.domain + "/api/application/servers/" + suspendid + "/unsuspend",
                     {
                       method: "post",
-                      headers: { 'Content-Type': 'application/json', "Authorization": `Bearer ${settings.pterodactyl.key}` }
+                      headers: { 'Content-Type': 'application/json', "Authorization": `Bearer ${newsettings.pterodactyl.key}` }
                     }
                   );
             }
         };
     }
 }
-
