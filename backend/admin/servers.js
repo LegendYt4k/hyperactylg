@@ -5,7 +5,7 @@ const ejs = require("ejs");
 
 module.exports.load = async function(app, db) {
 
-  app.get("/api/admin/servers", async (req,res) => {
+  app.get("/api/admin/servers?per_page=999999999", async (req,res) => {
 
     const server = [];
     const Serverinfo = new Promise(async (resolve, reject) => {
