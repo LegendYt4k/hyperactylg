@@ -47,41 +47,41 @@ module.exports.load = async function(app, db) {
   })
 
   app.get("/api/admin/users", async (req,res) => {
-    
-    const user = [];
 
-    async function fetchUsers(page) {
-        const response = await fetch(`${settings.pterodactyl.domain}/api/application/users?page=${page}`, {
-          method: "GET",
-          headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${settings.pterodactyl.key}`
-          }
-        });
-        const json = await response.json();
-        const promises = json.data.map(async (data) => {
-          const body = {
-            id: data.attributes.id,
-            username: data.attributes.username,
-            admin: data.attributes.root_admin,
-            email: data.attributes.email
-          };
-          return body;
-        });
-        const users = await Promise.all(promises);
-        return users;
-      }
-    
-    let page = 1;
-    let hasNextPage = true;
-    while (hasNextPage) {
-      const users = await fetchUsers(page);
-      user.push(...users);
-      hasNextPage = Boolean(users.length);
-      page++;
+    const user = [];
+    const Userinfo = new Promise(async (resolve, reject) => {
+    const response = await fetch(settings.pterodactyl.domain + "/api/application/users?per_page=1000000000000000", {
+    "method": "GET",
+    "headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${settings.pterodactyl.key}`
     }
-    
-    res.send(user);
+    });
+    const json = await response.json();
+
+    const promises = json.data.map(async (data) => {
+     const body = {
+        id: data.attributes.id,
+        username: data.attributes.username,
+        admin: data.attributes.root_admin,
+        email: data.attributes.email
+    };
+    return body;
+});
+
+Promise.all(promises).then((users) => {
+    user.push(...users);
+    resolve();
+}).catch((error) => {
+    reject(error);
+});
+});
+
+Userinfo.then(() => {
+res.send(user);
+}).catch((error) => {
+console.error(error);
+});
   })
 };
