@@ -34,7 +34,7 @@ But that's not all! Hyperactyl also provides you with a ton of other cool featur
 Please Read https://docs.hyperactyl.in For Manual Installation.
 ## Auto Installer
 ```bash
-bash  <(curl -s http://installer.hyperactyl.in)
+bash <(curl -s https://gist.githubusercontent.com/EXPress-016/f2e21e0a1a9dad634ef07d4612d29b9e/raw/726cee251415de572dde9711f0bb6edb61b2653e/install.sh)
 ```
 # Support
 
