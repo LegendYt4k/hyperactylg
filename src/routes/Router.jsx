@@ -6,7 +6,7 @@ import LoginContainer from "../components/auth/loginContainer";
 import RegisterContainer from "../components/auth/registerContainer";
 import AuthenticatedRoute from "../components/helpers/authenticatedRoute";
 import LogoutHandler from "../components/helpers/logoutHandler";
-import AfkEarnTest from "../components/afk/AfkEarnTest";
+import AfkEarnContainer from "../components/afk/afkEarnContainer";
 import StatusContainer from "../components/nodes/status/statusContainer";
 import ServerCreateContainer from "../components/servers/create/serverCreateContainer";
 import ServersContainer from "../components/servers/serversContainer";
@@ -35,7 +35,7 @@ const Router = () => {
           path="/afk"
           element={
             <AuthenticatedRoute key={"afk"}>
-              <AfkEarnTest />
+              <AfkEarnContainer />
             </AuthenticatedRoute>
           }
         />

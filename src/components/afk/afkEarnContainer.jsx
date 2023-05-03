@@ -4,7 +4,7 @@ import NavBar from "../common/navBar";
 import Header from "../common/header/headerContainer";
 import { Navigate } from "react-router";
 import NavButtonHandler from "../helpers/navButtonHandler";
-const AfkEarnTest = ({ Data }) => {
+const AfkEarnContainer = ({ Data }) => {
   const [earnedCoins, setEarnedCoins] = useState(0);
   const [timeRemaining, setTimeRemaining] = useState(settings.afk.per);
   const [isEarning, setIsEarning] = useState(true);
@@ -104,4 +104,4 @@ const AfkEarnTest = ({ Data }) => {
   );
 };
 
-export default AfkEarnTest;
+export default AfkEarnContainer;
