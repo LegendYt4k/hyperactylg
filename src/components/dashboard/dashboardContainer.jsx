@@ -7,7 +7,6 @@ import NavButtonHandler from "../helpers/navButtonHandler";
 const Dashboard = ({ Data }) => {
   useLayoutEffect(() => {
     document.title = "Hyperactyl - Home";
-    console.log(Data.panelUser);
   });
   useEffect(NavButtonHandler, []);
   return (

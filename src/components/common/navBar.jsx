@@ -6,7 +6,7 @@ const NavBar = () => {
     <>
       <aside className="sidebar-nav-wrapper">
         <div className="navbar-logo">
-          <a href="https://hyperactyl.com">
+          <a href="https://docs.hyperactyl.in">
             <img
               src="https://media.discordapp.net/attachments/1077153552616661002/1078970384394756127/hyperactyl__1___1_-removebg-preview.png"
               alt="logo"
