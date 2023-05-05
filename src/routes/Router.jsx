@@ -7,7 +7,7 @@ import RegisterContainer from "../components/auth/registerContainer";
 import AuthenticatedRoute from "../components/helpers/authenticatedRoute";
 import LogoutHandler from "../components/helpers/logoutHandler";
 import AfkEarnContainer from "../components/afk/afkEarnContainer";
-import StatusContainer from "../components/nodes/status/statusContainer";
+import NodeStatusContainer from "../components/nodes/status/nodeStatusContainer";
 import ServerCreateContainer from "../components/servers/create/serverCreateContainer";
 import ServersContainer from "../components/servers/serversContainer";
 import ServerEditContainer from "../components/servers/edit/serverEditContainer";
@@ -43,7 +43,7 @@ const Router = () => {
           path="/nodes"
           element={
             <AuthenticatedRoute key={"nodes-status"}>
-              <StatusContainer />
+              <NodeStatusContainer />
             </AuthenticatedRoute>
           }
         />

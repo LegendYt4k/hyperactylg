@@ -2,7 +2,7 @@
   "name": "hyperactyl",
   "version": "0.0.4",
   "type": "module",
-  "private": true,
+  "author": "ItzCrazyKns",
   "dependencies": {
     "@babel/preset-typescript": "^7.21.4",
     "@fortawesome/fontawesome-svg-core": "^6.4.0",

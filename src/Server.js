@@ -15,6 +15,7 @@ import userRoutes from './api/users/user.js'
 import createAfkWebSocketServer from './api/afk/websocket.js'
 import createServerRoute from './api/servers/create.js'
 import editServerRoute from './api/servers/edit.js'
+import nodesStatusRoutes from './api/nodes/status.js'
 import settings from '../settings.js'
 mongoose.connect(settings.database.link)
 .then(()=>log.info("Connected with database."))
@@ -37,6 +38,7 @@ app.use('/api/auth', authRoutes)
 app.use('/api/users', userRoutes)
 app.use('/api/servers', createServerRoute)
 app.use('/api/servers', editServerRoute)
+app.use('/api/nodes', nodesStatusRoutes)
 if(settings.afk.enabled) {
   createAfkWebSocketServer(settings.afk.ws.port)
 }

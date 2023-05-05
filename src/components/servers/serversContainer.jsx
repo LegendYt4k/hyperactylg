@@ -1,11 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import DetailedServersTable from "./components/detailedServersTable";
 import NavBar from "../common/navBar";
 import Header from "../common/header/headerContainer";
 import NavButtonHandler from "../helpers/navButtonHandler";
 
 const ServersContainer = ({ Data }) => {
-  useEffect(NavButtonHandler)
+  useLayoutEffect(() => {
+    document.title = "Hyperactyl - Servers";
+  });
+  useEffect(NavButtonHandler);
   return (
     <>
       <NavBar />
