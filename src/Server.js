@@ -42,7 +42,7 @@ app.use('/api/nodes', nodesStatusRoutes)
 if(settings.afk.enabled) {
   createAfkWebSocketServer(settings.afk.ws.port)
 }
-app.listen(80, () => {
+app.listen(settings.port, () => {
   log.info("Successfuly started") 
 })
 

@@ -2,6 +2,7 @@ export default {
   secret: "Unique",
   apiSecret: "Somethingmoresecure",
   theme: "dark",
+  port: 1358,
   database: {
     link: 'mongodbfornow'
   },
