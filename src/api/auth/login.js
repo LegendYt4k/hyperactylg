@@ -39,7 +39,7 @@ router.post('/login', async(req,res) => {
         res.status(200).json({token: token})
     } catch(err) {
         log.error(err)
-        res.status(500).json({messaeg:"Internal server error please contact an admin."})
+        res.status(500).json({message:"Internal server error please contact an admin."})
     }
 })
 export default router;
