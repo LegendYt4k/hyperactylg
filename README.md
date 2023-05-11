@@ -1,7 +1,3 @@
-![hyperactyl](https://cdn.discordapp.com/icons/1054382462999994458/f6a0a76f5f97057ff517148ce0d2e4eb.png?width=989&height=468)
-
-## Old version?
-If you want to use the old ![version](https://github.com/hyperactyl/hyperactyl-legacy) Then you can go ahead and use it, it gets regular bug fixes and updates.
 
 # Hyperactyl 
 ## What Is Hyperactyl?
