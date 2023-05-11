@@ -1,3 +1,4 @@
+
 # Hyperactyl 
 ## What Is Hyperactyl?
 ### Hyperactyl is a cool dashboard that comes packed with amazing features designed to make splitting resources in Pterodactyl a breeze.
