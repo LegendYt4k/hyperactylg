@@ -1,5 +1,3 @@
-![hyperactyl](https://media.discordapp.net/attachments/1079334341445951568/1079336643275804722/image.png?width=989&height=468)
-
 # Hyperactyl 
 ## What Is Hyperactyl?
 ### Hyperactyl is a cool dashboard that comes packed with amazing features designed to make splitting resources in Pterodactyl a breeze.
